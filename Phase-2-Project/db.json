@@ -1,0 +1,84 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Charlie",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXKDSv9C9N0TFrJG0rVHyQgIlIdr7UTF2AfA&usqp=CAU",
+      "type": "dog",
+      "breed": "Beagle Mix",
+      "gender": "Male",
+      "age": "2 years old",
+      "description": "Charlie is a great family dog. He loves to go on walks, and playing fetch!"
+    },
+    {
+        "id": 2,
+        "name": "Melody",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgHhUFxs-VKN9087aar1Q0nJByU9bHo1Sftg&usqp=CAU",
+        "type":"dog",
+        "breed":"Golden Retriever",
+        "gender": "Female",
+        "age":"10 weeks old",
+        "description":"Melody loves snuggles! She is playful, and is content with hanging out."
+    },
+    {
+      "id": 3,
+      "name": "Smalls",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFQrqdR87TjY92xqYHI57b-hU_lHjynViW0w&usqp=CAU",
+      "type": "dog",
+      "breed": "Pitbull",
+      "gender": "Female",
+      "age": "8 weeks old",
+      "description": "Smalls loves to cuddle! She is energetic, loves to run around and play."
+    },
+    {
+      "id": 4,
+      "name": "Zeus",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXPwIqmCAm5NKeu3a7vdccmfdyV58hiJX3Gg&usqp=CAU",
+      "type": "dog",
+      "breed": "German Shepard",
+      "gender": "Male",
+      "age": "3 years old",
+      "description": "Zeus is a smart, obedient, loving dog. He loves to go on daily walks to the park and play fetch"
+    },
+    {
+      "id": 5,
+      "name": "Milo",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8111e9Iwlt1DAcskZTnr2W12MD9Qr8B5tHA&usqp=CAU",
+      "type": "cat",
+      "breed": "Russian Blue",
+      "gender": "Male",
+      "age": "8 months old",
+      "description": "Milo is curious. He loves to cuddle, and play."
+    },
+    {
+      "id": 6,
+      "name": "Missy",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUYLDGIyRXSSY6IlKviqSja8NQIwgvDR2AWg&usqp=CAU",
+      "type": "cat",
+      "breed": "American Shorthair",
+      "gender": "Female",
+      "age": "6 weeks old",
+      "description": "Missy is a sassy cat, who loves to cuddle and play"
+    },
+    {
+      "id": 7,
+      "name": "Willow",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHFKTvNxFDMgyGwHtf1Nwu52LTU0kePM68ww&usqp=CAU",
+      "type": "dog",
+      "breed": "Siamese",
+      "gender": "Female",
+      "age": "3 years old",
+      "description": "Willow loves the company of other cats, she is independent and enjoys snuggles before bedtime."
+    },
+    {
+      "id": 8,
+      "name": "Garfield",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDYtnPh9t4w2Hw3OEWxGUyn_URpuS5tohiLg&usqp=CAU",
+      "type": "cat",
+      "breed": "Tabby",
+      "gender": "Male",
+      "age": "5 years old",
+      "description": "Garfield loves to sunbathe and stare out the windows. "
+    }
+  ]
+}
