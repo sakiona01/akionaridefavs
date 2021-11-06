@@ -42,4 +42,6 @@ Ride.create(title: 'Grizzly River Run', overview: 'Embark on a thrilling whitewa
 Ride.create(title: 'The Incredicoaster', overview: 'Join the Incredibles in a mad dash to catch Jack-Jack as he wreaks havoc throughout this high-speed chase!', poster_url: 'https://pbs.twimg.com/media/Dku7NS6XoAAUUzh.jpg', trailer_url: 'https://www.youtube.com/watch?v=TImWBazFS20&t=73s', category_id: 2, user_id: rand(1..5), favorite: false)
 Ride.create(title: 'Guardians of the Galaxy Misson: BREAKOUT!', overview: 'Join Rocket on a thrilling mission to rescue the Guardians of the Galaxy from the Collector’s fortress.', poster_url: 'https://static.wikia.nocookie.net/disney/images/9/93/GaurdiansBreakoutPoster-cleaned-Medium.jpg/revision/latest?cb=20180620003508', trailer_url: 'https://www.youtube.com/watch?v=Hpd4JjJIROg', category_id: 2, user_id: rand(1..5), favorite: false)
 
+puts 'Creating favorites...'
+
 puts 'Seeding complete!'

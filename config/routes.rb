@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ resources :categories
+ resources :rides
+ resources :users
+ resources :favorites
+
+#  login route
+ post '/login', to: 'sessions#create'
+
+#  logout route
+delete '/logout', to: 'sessions#destroy'
+
+# Auto login 
+get '/me', to: 'users#show'
+
 end
