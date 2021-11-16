@@ -1,9 +1,9 @@
 class RidesController < ApplicationController
-    before_action :set_ride, only: [:show, :update. :destroy]
+    before_action :set_ride, only: [:show, :update, :destroy]
 
     def index 
         rides = Ride.all
-        render json: rides
+        render json: rides, include: :category
     end
 
     def show
@@ -21,7 +21,7 @@ class RidesController < ApplicationController
     end
 
     def update 
-        if ride.update(movie_params)
+        if ride.update(ride_params)
             render json: ride
         else 
             render json: ride.errors, status: :unprocessable_entity

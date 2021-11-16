@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    wrap_parameters :user, include: [:username, :email, :password, :password_confirmation]
+    wrap_parameters :user, include: [:username, :email, :password]
 
     def index 
         users = User.all
@@ -7,12 +7,19 @@ class UsersController < ApplicationController
     end
 
     def show 
-        user = User.find_by(id: session[:user_id])
-        if user 
-            render json: user, include: [:rides, :categories]
-        else 
-            render json: { errors: ['Not Authorized'] } status: :unauthorized
+        # user = User.find_by(id: session[:user_id])
+        # if user 
+            
+        # else 
+        #     render json: { errors: ['Not Authorized'] }, status: :unauthorized
+        # end
+       
+        if current_user
+            render json: @current_user, include: [:rides, :categories]
+        else
+            render json: { error: "You are not logged in" }, status: :unauthorized
         end
+    end
 
     def create 
         user = User.create!(user_params)
@@ -20,7 +27,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             render json: user, include: ['rides'], status: :created
         else 
-            render json: { errors: ['Not Authorized'] } status: :unauthorized
+            render json: { errors: ['Not Authorized'] }, status: :unauthorized
         end
     end
 
@@ -42,6 +49,7 @@ class UsersController < ApplicationController
         end
 
         def user_params 
-            params.require(:user).permit(:username, :email, :password, :password_confirmation)
+            params.require(:user).permit(:username, :email, :password)
         end
-end
+    end
+

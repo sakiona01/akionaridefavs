@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 delete '/logout', to: 'sessions#destroy'
 
 # Auto login 
-get '/me', to: 'users#show'
+get '/me', to: 'sessions#me'
 
 end

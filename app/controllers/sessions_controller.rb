@@ -9,6 +9,20 @@ class SessionsController < ApplicationController
         end
     end
 
+    def me
+        # user = User.find_by(id: session[:user_id])
+        # if user 
+            
+        # else 
+        #     render json: { errors: ['Not Authorized'] }, status: :unauthorized
+        # end
+        if current_user
+            render json: @current_user, include: [:rides, :categories]
+        else
+            render json: { error: "You are not logged in" }, status: :unauthorized
+        end
+    end
+
     def destroy 
         if session[:user_id]
             session.destroy

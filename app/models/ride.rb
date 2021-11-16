@@ -1,5 +1,5 @@
 class Ride < ApplicationRecord
-    has_many :users
+    belongs_to :user
     belongs_to :category
 
     

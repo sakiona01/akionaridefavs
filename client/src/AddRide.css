@@ -1,0 +1,17 @@
+.add__ride__form {
+    position: fixed;
+    left: 10%;
+    max-width: 256px;
+    padding: 27px;
+    border-radius: 100px;
+    text-align: center;
+}
+
+.category__select {
+    width: 100%;
+}
+
+.title__addride {
+    position: absolute;
+    left: 40%;
+}

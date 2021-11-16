@@ -1,0 +1,38 @@
+.signup__login { 
+    position: fixed;
+    left: 40%;
+    max-width: 266px;
+    padding: 6px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+.input__username {
+    font-size: 120%;
+    color: #5a5854;
+    background-color: #f2f2f2;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    padding: 5px 5px 5px 30px;
+    background-repeat: no-repeat;
+    background-position: 8px 9px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+
+
+.input__password {
+    font-size: 120%;
+    color: #5a5854;
+    background-color: #f2f2f2;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    padding: 5px 5px 5px 30px;
+    background-repeat: no-repeat;
+    background-position: 8px 9px;
+    display: block;
+    margin-bottom: 10px;
+}

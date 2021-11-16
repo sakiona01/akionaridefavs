@@ -3,6 +3,10 @@ class ApplicationController < ActionController::API
    
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
+    def current_user
+        @current_user ||= User.find_by_id(session[:user_id])
+    end
+
     private 
 
     def render_unprocessable_entity_response(invalid)

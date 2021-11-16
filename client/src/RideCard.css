@@ -1,0 +1,42 @@
+.ride__card {
+    display: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+
+    width: 100%;
+    background-color: #111;
+    
+}
+
+.poster__div {
+    background-color: #111;
+    overflow: hidden;
+
+}
+
+.poster__card {
+    padding: 20px;
+    background-color: hsl(26, 36%, 84%);
+    padding: 40px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.ride__card__back {
+    overflow-x: hidden;
+}
+
+.poster__div {
+    /* object-fit: contain;
+    max-height: 100px;
+    width: 100%; */
+
+    background-color: inherit;
+    overflow: hidden;
+    transition: transform 450ms;
+}
+
+.poster__div:hover {
+    transform: scale(1.08);
+}
