@@ -1,27 +1,39 @@
 import React from 'react';
 import { Spinner } from 'react-bootstrap' 
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
 
 const Logout = ({ setCurrentUser }) => {
 
     const navigate = useHistory();
 
-    useEffect(() => {
-        let config = {
-            method: "DELETE",
-        };
+    // useEffect(() => {
+    //     let config = {
+    //         method: "DELETE",
+    //     };
 
-        fetch("/logout", config);
-            handleLogout();
-    });
+    //     fetch("/logout", config);
+    //         handleLogout();
+    // });
+
+    // const handleLogout = () => {
+    //     setCurrentUser(null);
+    //     setTimeout(() => {
+    //         navigate.push("/login");
+    //     }, 2000);
+    // };
 
     const handleLogout = () => {
-        setCurrentUser(null);
-        setTimeout(() => {
-            navigate.push("/login");
-        }, 2000);
-    };
+        fetch("/logout", {
+            method: "DELETE"
+        })
+        .then(resp => {
+            if (resp.ok) {
+                setCurrentUser({})
+                navigate.push("/")
+            }
+        })
+    }
 
     return (
     <div className='spinner' >

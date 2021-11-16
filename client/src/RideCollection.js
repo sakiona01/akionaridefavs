@@ -2,11 +2,11 @@ import React from 'react'
 import RideCard from './RideCard'
 import './RideCollection.css'
 
-const RideCollection = ({ userCategories, rides, setRides, setRideUpdate, favorites, setFavorites }) => {
+const RideCollection = ({ userCategories, rides, setRides, setRideUpdate }) => {
 
     const renderRideCard = () => {
         return rides.map((ride) => {
-            return <RideCard key={ride.id} ride={ride} setRideUpdate={setRideUpdate} rides={rides} setRides={setRides} favorites={favorites} setFavorites={setFavorites} userCategories={userCategories} />
+            return <RideCard key={ride.id} ride={ride} setRideUpdate={setRideUpdate} rides={rides} setRides={setRides}  userCategories={userCategories} />
         })
     }
 

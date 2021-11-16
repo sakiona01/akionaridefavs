@@ -3,7 +3,7 @@ import './RideCard.css'
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { useHistory } from 'react-router'
 
-const RideCardBack = ({ride, setRideUpdate, rides, setRides, setFavorites, favorites, userCategories }) => {
+const RideCardBack = ({ride, setRideUpdate, rides, setRides, userCategories }) => {
 
     const {id} = ride
     const navigate = useHistory()
@@ -26,50 +26,50 @@ const RideCardBack = ({ride, setRideUpdate, rides, setRides, setFavorites, favor
         )
     }
 
-    const handleFavorite = (e) => {
-        e.preventDefault()
-        let config = {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({favorite: true})
-        }
-        fetch(`/rides/${id}`, config)
-            .then(resp => resp.json())
-            .then(data => {
-                if(!data.errors) {
-                    setFavorites([...favorites, data])
-                }
-            } 
-        )
-    }
+    // const handleFavorite = (e) => {
+    //     e.preventDefault()
+    //     let config = {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json'
+    //         },
+    //         body: JSON.stringify({favorite: true})
+    //     }
+    //     fetch("/rides/", config)
+    //         .then(resp => resp.json())
+    //         .then(data => {
+    //             if(!data.errors) {
+    //                 setFavorites([...favorites, data])
+    //             }
+    //         } 
+    //     )
+    // }
 
-    const handleRemoveFavorite = (e) => {
-        e.preventDefault()
-        let config = {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({favorite: false})
-        }
-        fetch(`/rides/${id}`, config)
-            .then(resp => resp.json())
-            .then(data => {
-                console.log(data)
-                if(!data.errors) {
-                    setFavorites(filterFavorites())
-                }
-            } 
-        )
-    }
+    // const handleRemoveFavorite = (e) => {
+    //     e.preventDefault()
+    //     let config = {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json'
+    //         },
+    //         body: JSON.stringify({favorite: false})
+    //     }
+    //     fetch(`/rides/${id}`, config)
+    //         .then(resp => resp.json())
+    //         .then(data => {
+    //             console.log(data)
+    //             if(!data.errors) {
+    //                 setFavorites(filterFavorites())
+    //             }
+    //         } 
+    //     )
+    // }
 
-    const filterFavorites = () => {
-        return favorites.filter(favorite => favorite.id !== id)
-    }
+    // const filterFavorites = () => {
+    //     return favorites.filter(favorite => favorite.id !== id)
+    // }
 
     function truncate(str, n) {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -88,12 +88,12 @@ const RideCardBack = ({ride, setRideUpdate, rides, setRides, setFavorites, favor
                 <ListGroup className="list-group-flush">
                     <ListGroupItem><Card.Link href={ride.trailer_url} target="_blank">Watch Ride Clip</Card.Link></ListGroupItem>
                 </ListGroup>
-                <ListGroup className="list-group-flush">
+                {/* <ListGroup className="list-group-flush">
                     {   ride.favorite 
                         ?<ListGroupItem><Card.Link onClick={handleRemoveFavorite} href="#">Remove favorite</Card.Link></ListGroupItem>
                         :<ListGroupItem><Card.Link onClick={handleFavorite} href="#">Add to favorites</Card.Link></ListGroupItem>
                     }
-                </ListGroup>
+                </ListGroup> */}
                 <Card.Body>
                     {   ride.favorite
                         ?   <Card.Link onClick={handleClick} >Update Ride</Card.Link>

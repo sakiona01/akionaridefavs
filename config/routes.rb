@@ -2,7 +2,7 @@ Rails.application.routes.draw do
  resources :categories
  resources :rides
  resources :users
- resources :favorites
+#  resources :favorites
 
 #  login route
  post '/login', to: 'sessions#create'

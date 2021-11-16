@@ -7,20 +7,20 @@ import Logout from './Logout'
 import NavBar from './NavBar';
 import RideCollection from './RideCollection';
 import AddRide from './AddRide';
-import Favorites from './Favorites';
+// import Favorites from './Favorites';
 import UpdateRide from './UpdateRide';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
 
-const [currentUser, setCurrentUser] = useState(null)
+const [currentUser, setCurrentUser] = useState({})
 const [errors, setErrors] = useState([])
 const [categories, setCategories] = useState([])
 const [rides, setRides] = useState([])
 const [userCategories, setUserCategories] = useState([])
 const [rideUpdate, setRideUpdate] = useState({})
-const [favorites, setFavorites] = useState([])
+// const [favorites, setFavorites] = useState([])
 
 const navigate = useHistory();
 
@@ -60,7 +60,7 @@ const stateInitializer = () => {
         setCurrentUser(data)
         setRides(data.rides)
         setUserCategories(data.categories)
-        setFavorites(filterFavorites(data.rides))
+        // setFavorites(filterFavorites(data.rides))
       }) 
     } 
   })
@@ -73,18 +73,18 @@ const fetchCategories = () => {
   .then(data => setCategories(data))
 }
 
-const filterFavorites = (rides) => {
-  return rides.filter(ride => {
-    return ride.favorite === true
-  })
-}
+// const filterFavorites = (rides) => {
+//   return rides.filter(ride => {
+//     return ride.favorite === true
+//   })
+// }
 
 useEffect(stateInitializer, [])
 
 
   return (
     <div className="App">
-      <NavBar currentUser={currentUser} />
+      <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Switch>
           <Route exact path='/signup'>
             <Signup handleSignupLogin={handleSignupLogin} errors={errors} />
@@ -92,18 +92,15 @@ useEffect(stateInitializer, [])
           <Route exact path='/login'>
             <Login handleSignupLogin={handleSignupLogin} errors={errors} />
           </Route>
-          <Route exact path='/logout'>
-            <Logout setCurrentUser={setCurrentUser} />
-          </Route>
           <Route exact path='/ridecollection'>
-            <RideCollection userCategories={userCategories} rides={rides} setRides={setRides} setRideUpdate={setRideUpdate} favorites={favorites} setFavorites={setFavorites}/>
+            <RideCollection userCategories={userCategories} rides={rides} setRides={setRides} setRideUpdate={setRideUpdate}/>
           </Route>
           <Route exact path='/addride'>
             <AddRide categories={categories} setRides={setRides} errors={errors} rides={rides} />
           </Route>
-          <Route exact path='/favorites'>
+          {/* <Route exact path='/favorites'>
             <Favorites favorites={favorites} setFavorites={setFavorites} setRideUpdate={setRideUpdate}/>
-          </Route>
+          </Route> */}
           <Route exact path='/updateride'>
             <UpdateRide categories={categories} errors={errors} rideUpdate={rideUpdate} rides={rides} setRides={setRides}/>
           </Route>
