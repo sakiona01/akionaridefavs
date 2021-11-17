@@ -1,9 +1,9 @@
-.movie__collection {
+.ride__collection {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 10px;
     margin-right: 4%;
-    background-color: #111;
+    background-color: hsl(26, 36%, 84%);
     width: 100vw;
 }
