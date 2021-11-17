@@ -5,7 +5,7 @@ import './RideCard.css'
 const RideCardFront = ({ride}) => {
     return (
         <div className='ride__card__front' >
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '10rem' }}>
             <Card.Img variant="top" src={ride.poster_url} />
         </Card> 
         </div>

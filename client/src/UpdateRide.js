@@ -11,10 +11,12 @@ const UpdateRide = ({ categories, errors, rides, setRides, rideUpdate }) => {
 
     const onChange = (e) => {
         setState({ ...state, [e.target.name]: e.target.value})
+        console.log(state)
     }
 
     const handleUpdateRide = (e) => {
         e.preventDefault()
+        console.log(rideUpdate.id)
         let config = {
             method: 'PATCH',
             headers: {
@@ -23,7 +25,7 @@ const UpdateRide = ({ categories, errors, rides, setRides, rideUpdate }) => {
             },
             body: JSON.stringify(state)
         }
-        fetch(`/rides/${id}`, config)
+        fetch(`/rides/${rideUpdate.id}`, config)
             .then(resp => resp.json())
             .then(data => {
                 if(!data.errors) {

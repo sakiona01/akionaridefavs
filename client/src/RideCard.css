@@ -6,21 +6,23 @@
 
     width: 100%;
     background-color: #111;
-    
+    display: inline-block
 }
 
 .poster__div {
     background-color: #111;
     overflow: hidden;
-
+    display: inline-block
+    
 }
 
 .poster__card {
-    padding: 20px;
+    padding: 10px;
     background-color: hsl(26, 36%, 84%);
-    padding: 40px;
+    padding: 30px;
     object-fit: contain;
     overflow: hidden;
+    
 }
 
 .ride__card__back {
@@ -29,12 +31,13 @@
 
 .poster__div {
     /* object-fit: contain;
-    max-height: 100px;
+    max-height: 10px;
     width: 100%; */
 
     background-color: inherit;
     overflow: hidden;
     transition: transform 450ms;
+    
 }
 
 .poster__div:hover {

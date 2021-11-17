@@ -3,27 +3,14 @@ import './RideCard.css'
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap'
 import { useHistory } from 'react-router'
 
-const RideCardBack = ({ride, setRideUpdate, rides, setRides, userCategories }) => {
+const RideCardBack = ({ride, setRideUpdate, rides, setRides, userCategories, handleDeleteRide }) => {
 
     const {id} = ride
     const navigate = useHistory()
 
     const handleClick = () => {
-        setRideUpdate(ride)
+        // setRideUpdate(ride)
         navigate.push ('/updateride')
-    }
-
-    const handleDeleteRide = () => {
-        let config = {
-            method: 'DELETE'
-        }
-
-        fetch(`/rides/${id}`, config)
-        setRides(
-            rides.filter(ride => {
-                return ride.id !== id 
-            })
-        )
     }
 
     // const handleFavorite = (e) => {
@@ -96,10 +83,10 @@ const RideCardBack = ({ride, setRideUpdate, rides, setRides, userCategories }) =
                 </ListGroup> */}
                 <Card.Body>
                     {   ride.favorite
-                        ?   <Card.Link onClick={handleClick} >Update Ride</Card.Link>
+                        ?  <Card.Link onClick={handleClick} >Update Ride</Card.Link>
                         :<>
                             <Card.Link onClick={handleClick} >Update Ride</Card.Link>
-                            <Card.Link onClick={handleDeleteRide} href="#" >Delete Ride</Card.Link >
+                            <Card.Link onClick={e=>handleDeleteRide(ride.id)} href="#" >Delete Ride</Card.Link >
                         </>
                     }
                 </Card.Body>

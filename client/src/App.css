@@ -1,4 +1,4 @@
-/* .App {
+.App {
   text-align: center;
 }
 
@@ -35,7 +35,7 @@
   to {
     transform: rotate(360deg);
   }
-} */
+}
 
 .spinner {
   position: fixed;
@@ -44,7 +44,7 @@
 
 .App {
   background-color: hsl(26, 36%, 84%);
-  background-color: 9999CC;
+  background-color: hsl(26, 36%, 84%);
   height:  100vh;
   color: rgb(117, 119, 124);
 }
@@ -55,7 +55,7 @@
   left: 46%;
 }
 
-.title__moviecollection {
+.title__ridecollection {
   position: absolute;
   left: 46%;
 }

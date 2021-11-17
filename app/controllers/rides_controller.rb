@@ -7,7 +7,9 @@ class RidesController < ApplicationController
     end
 
     def show
-        render json: ride
+        ride = Ride.find(params[:id])
+        render json: ride, status: :ok
+        
     end
 
     def create 
@@ -21,15 +23,23 @@ class RidesController < ApplicationController
     end
 
     def update 
-        if ride.update(ride_params)
-            render json: ride
-        else 
-            render json: ride.errors, status: :unprocessable_entity
-        end
+        found_ride = Ride.find(params[:id])
+        found_ride.update(ride_params)
+        render json: found_ride, status: :ok
+        # if ride.update(ride_params)
+        #     render json: ride
+        # else 
+        #     render json: ride.errors, status: :unprocessable_entity
     end
 
+    # def destroy
+    #     ride.destroy
+    # end
+
     def destroy
-        ride.destroy
+        deletable_ride = Ride.find(params[:id])
+        deletable_ride.destroy
+        head :no_content
     end
 
     private 
@@ -38,6 +48,6 @@ class RidesController < ApplicationController
         end
 
         def ride_params
-            params.require(:ride).permit(:title, :overview, :poster_url, :trailer_url, :category_id, :user_id, :favorite)
+            params.permit(:ride, :title, :overview, :poster_url, :trailer_url, :category_id, :user_id)
         end
 end
