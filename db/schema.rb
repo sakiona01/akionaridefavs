@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(version: 2021_11_15_182925) do
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
+  create_table "rides_v1", force: :cascade do |t|
+    t.string "title"
+    t.string "overview"
+    t.string "poster_url"
+    t.string "trailer_url"
+    t.boolean "favorite"
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_rides_v1_on_category_id"
+    t.index ["user_id"], name: "index_rides_v1_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -45,4 +59,6 @@ ActiveRecord::Schema.define(version: 2021_11_15_182925) do
 
   add_foreign_key "rides", "categories"
   add_foreign_key "rides", "users"
+  add_foreign_key "rides_v1", "categories"
+  add_foreign_key "rides_v1", "users"
 end

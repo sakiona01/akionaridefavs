@@ -44,6 +44,7 @@ const RideCollection = ({ userCategories, setRideUpdate }) => {
 
     return (
         <div className='ride__collection__div'>
+            {console.log(rides)}
             <br />
             <h5 className='title__ridecollection' >Rides </h5>
             <br/>

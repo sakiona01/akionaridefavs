@@ -2,9 +2,10 @@ import React from 'react';
 import { Spinner } from 'react-bootstrap' 
 // import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
+import { useUser } from './hooks/useUser'
 
-const Logout = ({ setCurrentUser }) => {
-
+const Logout = () => {
+    const { setUser } = useUser()
     const navigate = useHistory();
 
     // useEffect(() => {
@@ -29,7 +30,7 @@ const Logout = ({ setCurrentUser }) => {
         })
         .then(resp => {
             if (resp.ok) {
-                setCurrentUser({})
+                setUser({})
                 navigate.push("/")
             }
         })
