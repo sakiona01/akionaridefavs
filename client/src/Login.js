@@ -1,13 +1,20 @@
 import React from "react";
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom';
+import { useUser } from './hooks/useUser'
+
 import './SignupLogin.css'
 import Errors from "./Errors";
 
-const Login = ({ handleSignupLogin, errors }) => {
-    const [state, setState] = useState({});
+const Login = ({ handleSignupLogin, errors, currentUser, setCurrentUser }) => {
+    const [formData, setFormData] = useState({});
+    const { user, setUser } = useUser()
+
+
+    const navigate = useHistory();
 
     const onChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = (e) => {
@@ -19,14 +26,21 @@ const Login = ({ handleSignupLogin, errors }) => {
         "Content-Type": "application/json",
         Accept: "application/json",
         },
-        body: JSON.stringify(state),
+        body: JSON.stringify(formData),
     };
 
     fetch("/login", config)
         .then((res) => res.json())
-        .then((data) => {
-            console.log(data, 'login data')
-            handleSignupLogin(data)
+        .then((userResponse) => {
+            console.log(userResponse, 'login data')
+            console.log('handleSignupLogin data:', userResponse)
+            // data.errors ? setErrors(data.errors) : handleState(data)
+            if(!userResponse.errors) {
+                // setCurrentUser(userResponse)
+                setUser(userResponse)
+                navigate.push('/ridecollection')
+                // setErrors([])
+            }
         });
     };
 

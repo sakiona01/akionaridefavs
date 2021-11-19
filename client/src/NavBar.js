@@ -2,8 +2,10 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import { useUser } from './hooks/useUser'
 
-const NavBar = ({ currentUser, setCurrentUser }) => {
+const NavBar = () => {
+const { user, setUser } = useUser()
 
 const navigate = useHistory()
     const handleLogout = () => {
@@ -12,7 +14,7 @@ const navigate = useHistory()
         })
         .then(resp => {
             if (resp.ok) {
-                setCurrentUser({})
+                setUser({})
                 navigate.push("/login")
             }
         })
@@ -44,7 +46,7 @@ const navigate = useHistory()
                     <NavDropdown.Divider />
                     </NavDropdown>
                     <Navbar.Text>
-                        Signed in as: <a href="/ridecollection">{currentUser.username ? `${currentUser.username}` : "Not Signed In"}</a>
+                        Signed in as: <a href="/ridecollection">{user?.username ? `${user?.username}` : "Not Signed In"}</a>
                     </Navbar.Text>
                 </Nav>
                 </Navbar.Collapse>
