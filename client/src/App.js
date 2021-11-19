@@ -46,8 +46,7 @@ const stateInitializer = () => {
   fetch("/me")
   .then(resp => {
     if (resp.ok) {
-      resp.json().then(data => {
-        setRides(data.rides)
+      resp.json().then(data => {        setRides(data.rides)
         setUserCategories(data.categories)
         // setFavorites(filterFavorites(data.rides))
       }) 
